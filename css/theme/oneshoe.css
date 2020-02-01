@@ -1,44 +1,18 @@
 /**
- * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ * One Shoe theme for reveal.js.
  *
- * By Hakim El Hattab, http://hakim.se
+ * This contains references to a proprietary stylesheet supporting One Shoe
+ * branding.
+ *
+ * By Eelke Blok, https://oneshoe.com
  */
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-@font-face {
-  font-family: "TT Norms";
-  font-style: normal;
-  font-weight: 400;
-  src: url("fonts/ttnormsregular.woff2"); }
-
-@font-face {
-  font-family: "TT Norms";
-  font-style: normal;
-  font-weight: 700;
-  src: url("fonts/ttnormsbold.woff2"); }
-
-@font-face {
-  font-family: "TT Norms";
-  font-style: normal;
-  font-weight: 900;
-  src: url("fonts/ttnormsextrabold.woff2"); }
-
 section.has-light-background, section.has-light-background h1, section.has-light-background h2, section.has-light-background h3, section.has-light-background h4, section.has-light-background h5, section.has-light-background h6 {
   color: #222; }
-
-.logo {
-  background-image: url("image/oneshoe.svg");
-  background-size: 10vw calc(0.2 * 10vw);
-  width: 10vw;
-  height: calc(0.2 * 10vw);
-  position: absolute;
-  top: 2vw;
-  right: 2vw;
-  display: block;
-  z-index: 100; }
 
 /*********************************************
  * GLOBAL STYLES
@@ -83,7 +57,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #000;
-  font-family: "TT Norms";
+  font-family: "TT Norms", sans-serif;
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: normal;
@@ -308,3 +282,8 @@ body {
 @media print {
   .backgrounds {
     background-color: #b4d9c5; } }
+
+.reveal .progress {
+  background-color: rgba(0, 0, 0, 0); }
+  .reveal .progress span {
+    background-color: #d62755; }
