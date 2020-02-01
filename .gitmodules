@@ -1,0 +1,3 @@
+[submodule "css/theme/oneshoe"]
+	path = css/theme/oneshoe
+	url = git@bitbucket.org:eelkeblok/oneshoe-reveal-theme.git
