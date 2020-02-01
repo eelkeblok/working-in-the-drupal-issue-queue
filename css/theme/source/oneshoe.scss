@@ -1,34 +1,16 @@
 /**
- * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ * One Shoe theme for reveal.js.
  *
- * By Hakim El Hattab, http://hakim.se
+ * This contains references to a proprietary stylesheet supporting One Shoe
+ * branding.
+ *
+ * By Eelke Blok, https://oneshoe.com
  */
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-
-@font-face {
-  font-family: "TT Norms";
-  font-style: normal;
-  font-weight: 400;
-  src: url('fonts/ttnormsregular.woff2');
-}
-
-@font-face {
-  font-family: "TT Norms";
-  font-style: normal;
-  font-weight: 700;
-  src: url('fonts/ttnormsbold.woff2');
-}
-
-@font-face {
-  font-family: "TT Norms";
-  font-style: normal;
-  font-weight: 900;
-  src: url('fonts/ttnormsextrabold.woff2');
 }
 
 // Default mixins and settings -----------------
@@ -44,7 +26,7 @@ $headingColor: #000;
 
 $mainFontSize: 38px;
 $mainFont: 'Times New Roman', serif;
-$headingFont: "TT Norms";
+$headingFont: "TT Norms", sans-serif;
 $headingFontWeight: 900;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
@@ -59,25 +41,9 @@ $heading3Size: 1.3em;
 $heading4Size: 1.0em;
 
 section.has-light-background {
-	&, h1, h2, h3, h4, h5, h6 {
-		color: #222;
-	}
-}
-
-$logoWidth: 10vw;
-$logoHeight: calc(0.2 * #{$logoWidth});
-$logoMargin: 2vw;
-
-.logo {
-	background-image: url('image/oneshoe.svg');
-	background-size: $logoWidth $logoHeight;
-	width: $logoWidth;
-	height: $logoHeight;
-	position: absolute;
-	top: $logoMargin;
-	right: $logoMargin;
-	display: block;
-	z-index: 100;
+  &, h1, h2, h3, h4, h5, h6 {
+    color: #222;
+  }
 }
 
 @mixin bodyBackground() {
