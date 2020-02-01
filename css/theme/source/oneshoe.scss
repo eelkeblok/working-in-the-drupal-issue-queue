@@ -46,6 +46,12 @@ section.has-light-background {
   }
 }
 
+.reveal table.table--layout {
+  td, th {
+	border-bottom: 0;
+  }
+}
+
 @mixin bodyBackground() {
   background: $backgroundColor;
   border-color: #fff;
