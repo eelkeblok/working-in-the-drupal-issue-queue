@@ -1,0 +1,93 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "TT Norms";
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/ttnormsregular.woff2');
+}
+
+@font-face {
+  font-family: "TT Norms";
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/ttnormsbold.woff2');
+}
+
+@font-face {
+  font-family: "TT Norms";
+  font-style: normal;
+  font-weight: 900;
+  src: url('fonts/ttnormsextrabold.woff2');
+}
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #b4d9c5;
+
+$mainColor: #000;
+$headingColor: #000;
+
+$mainFontSize: 38px;
+$mainFont: 'Times New Roman', serif;
+$headingFont: "TT Norms";
+$headingFontWeight: 900;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: normal;
+$linkColor: rgb(47, 67, 119);
+$linkColorHover: darken( $linkColor, 15% );
+$selectionBackgroundColor: darken( $linkColor, 25% );
+
+$heading1Size: 2em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #222;
+	}
+}
+
+$logoWidth: 10vw;
+$logoHeight: calc(0.2 * #{$logoWidth});
+$logoMargin: 2vw;
+
+.logo {
+	background-image: url('image/oneshoe.svg');
+	background-size: $logoWidth $logoHeight;
+	width: $logoWidth;
+	height: $logoHeight;
+	position: absolute;
+	top: $logoMargin;
+	right: $logoMargin;
+	display: block;
+	z-index: 100;
+}
+
+@mixin bodyBackground() {
+  background: $backgroundColor;
+  border-color: #fff;
+  border-width: 1em;
+  border-style: solid;
+  height: 100%;
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
