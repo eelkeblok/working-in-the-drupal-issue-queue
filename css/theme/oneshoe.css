@@ -286,6 +286,9 @@ body {
   .backgrounds {
     background-color: #b4d9c5; } }
 
+.reveal p {
+  margin: 0.1em 0; }
+
 .reveal code {
   background-color: white; }
 
@@ -294,6 +297,9 @@ body {
   border: none; }
   .reveal section img.plain {
     box-shadow: none; }
+
+.reveal section li li {
+  font-size: 0.7em; }
 
 .reveal .progress {
   background-color: rgba(0, 0, 0, 0); }

@@ -64,6 +64,10 @@ section.has-light-background {
 @import "../template/theme";
 // ---------------------------------------------
 
+.reveal p {
+  margin: 0.1em 0;
+}
+
 .reveal code {
   background-color: white;
 }
@@ -75,6 +79,10 @@ section.has-light-background {
   &.plain {
     box-shadow: none;
   }
+}
+
+.reveal section li li {
+  font-size: 0.7em;
 }
 
 .reveal .progress {
