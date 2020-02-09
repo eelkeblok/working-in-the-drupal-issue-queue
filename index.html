@@ -281,6 +281,61 @@
             or main purpose.
           </aside>
         </section>
+        <section>
+          <h2>Issue statuses</h2>
+
+          <a href="https://www.drupal.org/issue-queue/status">https://www.drupal.org/issue-queue/status</a><br />
+            <img data-src="images/drupal-issue-statuses.png" class="plain"/>
+          <aside class="notes" data-markdown>
+            Active:
+            * default, no patch
+            * sometimes used to reset an issue, even when it has patches
+              attached.
+
+            Needs review:
+            * patch created, needs review and testing.
+            * trigger for test bot
+            * might be an idea that needs review
+            * used to find patches that need to be reviews
+
+            Needs work:
+            * has a patch, but needs additional work
+            * by reviewer
+            * by testbot
+            * by author
+
+            Reviewed & Tested by the Community
+            * RTBC
+            * received sufficient reviewing, deemed ready to be committed
+            * usually not set by patch author
+            * judgment call
+            * does not mean it will be committed; up to the maintainer, might
+              get reset if somebody feels it needs to
+            * if on this status for a long time, needs to be re-valuated
+
+            Patch (to be ported)
+            * Patch has been committed to one version, but needs to be commited
+              to another and needs to be modified to do so
+
+            Fixed
+            * Issue has been fixed (by committing patch).
+            * Will get set to Closed (fixed) automatically
+
+            Postponed. Either:
+            * the issue is valid and should be fixed, but there are
+              blockers; mark issue as blocked, state which issues in a comment,
+              attach related issues
+            * the issue is not being worked on actively, but intention is to
+              return to it
+
+            Postponed (maintainer needs more info)
+            * insufficient information in the issue to proceed
+            * could be set to Closed (cannot reproduce) or Closed (won't fix)
+
+            Closed
+            * Yowza.
+          </aside>
+        </section>
       </div>
     </div>
 
