@@ -286,6 +286,15 @@ body {
   .backgrounds {
     background-color: #b4d9c5; } }
 
+.reveal code {
+  background-color: white; }
+
+.reveal section img {
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  border: none; }
+  .reveal section img.plain {
+    box-shadow: none; }
+
 .reveal .progress {
   background-color: rgba(0, 0, 0, 0); }
   .reveal .progress span {

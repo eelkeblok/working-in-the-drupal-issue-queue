@@ -64,6 +64,19 @@ section.has-light-background {
 @import "../template/theme";
 // ---------------------------------------------
 
+.reveal code {
+  background-color: white;
+}
+
+.reveal section img {
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  border: none;
+
+  &.plain {
+    box-shadow: none;
+  }
+}
+
 .reveal .progress {
   background-color: rgba(0, 0, 0, 0);
 
