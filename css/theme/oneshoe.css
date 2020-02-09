@@ -296,7 +296,8 @@ body {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
   border: none; }
   .reveal section img.plain {
-    box-shadow: none; }
+    box-shadow: none;
+    background: none; }
 
 .reveal section li li {
   font-size: 0.7em; }
