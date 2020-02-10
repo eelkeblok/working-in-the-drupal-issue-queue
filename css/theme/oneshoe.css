@@ -289,9 +289,6 @@ body {
 .reveal p {
   margin: 0.1em 0; }
 
-.reveal code {
-  background-color: white; }
-
 .reveal section img {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
   border: none; }
