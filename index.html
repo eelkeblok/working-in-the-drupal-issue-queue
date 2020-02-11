@@ -632,6 +632,85 @@ post was not the issue summary. Use rarely.)
           <p>A way for reviewers to quickly understand the changes you made
           from one patch to the next.</p>
         </section>
+        <section>
+          <h2>Rerolling patches</h2>
+
+          <ul>
+            <li>The base project changed in such a way that the patch no longer applies.</li>
+            <li class="fragment">Otherwise known as a merge conflict.</li>
+            <li class="fragment">Git is excellent at resolving conflicts (really!)</li>
+          </ul>
+          </textarea>
+        </section>
+        <section data-state="gitgraph-30">
+          <h2>Rerolling patches (2)</h2>
+          <div id="gitgraph-30"></div>
+          <script>
+            Reveal.addEventListener('gitgraph-30', function () {
+              // Get the graph container HTML element.
+              const graphContainer = document.getElementById("gitgraph-30");
+
+              if (graphContainer.classList.contains('graphed')) {
+                return;
+              }
+
+              // Instantiate the graph.
+              const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+              // Simulate git commands with Gitgraph API.
+              const master = gitgraph.branch("8.x-1.x");
+              master.commit("Initial commit");
+              master.commit("Another commit");
+              master.tag("8.x-1.0");
+
+              const patch = gitgraph.branch("123456/1");
+              patch.commit("Solve the issue");
+
+              master.commit("Some commit that breaks the patch");
+              graphContainer.classList.add('graphed');
+            }, false);
+          </script>
+        </section>
+        <section data-state="gitgraph-40">
+          <h2>Rerolling patches (3)</h2>
+          <div id="gitgraph-40"></div>
+          <script>
+            Reveal.addEventListener('gitgraph-40', function () {
+              // Get the graph container HTML element.
+              const graphContainer = document.getElementById("gitgraph-40");
+
+              if (graphContainer.classList.contains('graphed')) {
+                return;
+              }
+
+              // Instantiate the graph.
+              const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+              // Simulate git commands with Gitgraph API.
+              const master = gitgraph.branch("8.x-1.x");
+              master.commit("Initial commit");
+              master.commit("Another commit");
+              master.tag("8.x-1.0");
+
+              const patch = gitgraph.branch("123456/1");
+              patch.commit("Solve the issue");
+
+              master.commit("Some commit that breaks the patch");
+              patch.merge(master);
+              graphContainer.classList.add('graphed');
+            }, false);
+          </script>
+
+          <small class="fragment"><code>$ git diff 8.x-1.x 123456/1 > my-patch.patch</code></small>
+          <aside class="notes">
+            Note that we now need to create the patch against the dev branch,
+            not the version tag; we are looking for the different between our
+            patch branch and the unpatched branch.
+
+            You might get some merge conflicts, but much of the time this is
+            all.
+          </aside>
+        </section>
       </div>
     </div>
 
