@@ -563,6 +563,37 @@ post was not the issue summary. Use rarely.)
           </script>
           <small><code>$ git diff 8.x-1.0 123456/1 > my-patch.patch</code></small>
         </section>
+        <section data-state="gitgraph-2">
+          <h2>Or...</h2>
+
+          <div id="gitgraph-2"></div>
+          <script>
+            Reveal.addEventListener('gitgraph-2', function () {
+              // Get the graph container HTML element.
+              const graphContainer = document.getElementById("gitgraph-2");
+
+              if (graphContainer.classList.contains('graphed')) {
+                return;
+              }
+              // Instantiate the graph.
+              const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+              // Simulate git commands with Gitgraph API.
+              const master = gitgraph.branch("8.x-1.x");
+              master.commit("Initial commit");
+              master.commit("Another commit");
+              master.tag("8.x-1.0");
+
+              const patch = gitgraph.branch("123456/1");
+              patch.commit("Solve the issue");
+              patch.commit("Fix a typo");
+              patch.commit("Yet another tweak");
+
+              graphContainer.classList.add('graphed');
+            }, false);
+          </script>
+          <small><code>$ git diff 8.x-1.0 123456/1 > my-patch.patch</code></small>
+        </section>
       </div>
     </div>
 
