@@ -12,6 +12,22 @@
     <link rel="stylesheet" href="css/theme/oneshoe.css">
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@gitgraph/js"></script>
+    <script>
+      const withoutAuthor = GitgraphJS.templateExtend(GitgraphJS.TemplateName.Metro, {
+        commit: {
+          message: {
+            displayAuthor: false,
+          },
+        },
+      });
+      const gitgraphOptions = {
+        // mode: 'compact'
+        template: withoutAuthor
+      };
+    </script>
+
+    <script src="js/reveal.js"></script>
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/solarized-dark.css">
@@ -497,10 +513,51 @@ includes the fix)
 post was not the issue summary. Use rarely.)
           </code></pre>
         </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## Patches
+
+            Git is your friend!
+            Before you start, get a clone of the git repo.
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            <h2>Applying patch</h2>
+
+            <ol>
+              <li>Find the commit where the patch was created from (!)</li>
+              <li><code>$ git apply -v path/file.patch</code> (or similar)
+              </li>
+            </ol>
+          </textarea>
+        </section>
+        <section data-state="gitgraph-1">
+          <h2>Creating a patch</h2>
+
+          <div id="gitgraph-1"></div>
+          <script>
+          Reveal.addEventListener('gitgraph-1', function () {
+          // Get the graph container HTML element.
+          const graphContainer = document.getElementById("gitgraph-1");
+
+          // Instantiate the graph.
+          const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+          // Simulate git commands with Gitgraph API.
+          const master = gitgraph.branch("8.x-1.x");
+          master.commit("Initial commit");
+          master.commit("Another commit");
+          master.tag("8.x-1.0");
+
+          const patch = gitgraph.branch("123456/1");
+          patch.commit("Solve the issue");
+          }, false);
+          </script>
+          <small><code>$ git diff 8.x-1.0 123456/1 > my-patch.patch</code></small>
+        </section>
       </div>
     </div>
-
-    <script src="js/reveal.js"></script>
 
     <script>
       // More info about config & dependencies:
