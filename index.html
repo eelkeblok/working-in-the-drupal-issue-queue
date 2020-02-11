@@ -539,20 +539,26 @@ post was not the issue summary. Use rarely.)
           <div id="gitgraph-1"></div>
           <script>
           Reveal.addEventListener('gitgraph-1', function () {
-          // Get the graph container HTML element.
-          const graphContainer = document.getElementById("gitgraph-1");
+            // Get the graph container HTML element.
+            const graphContainer = document.getElementById("gitgraph-1");
 
-          // Instantiate the graph.
-          const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+            if (graphContainer.classList.contains('graphed')) {
+              return;
+            }
 
-          // Simulate git commands with Gitgraph API.
-          const master = gitgraph.branch("8.x-1.x");
-          master.commit("Initial commit");
-          master.commit("Another commit");
-          master.tag("8.x-1.0");
+            // Instantiate the graph.
+            const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
 
-          const patch = gitgraph.branch("123456/1");
-          patch.commit("Solve the issue");
+            // Simulate git commands with Gitgraph API.
+            const master = gitgraph.branch("8.x-1.x");
+            master.commit("Initial commit");
+            master.commit("Another commit");
+            master.tag("8.x-1.0");
+
+            const patch = gitgraph.branch("123456/1");
+            patch.commit("Solve the issue");
+
+            graphContainer.classList.add('graphed');
           }, false);
           </script>
           <small><code>$ git diff 8.x-1.0 123456/1 > my-patch.patch</code></small>
