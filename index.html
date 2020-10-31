@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Working in the Drupal issue queue</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -16,8 +16,804 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1 style="text-transform: uppercase">
+						Working in the Drupal<br/>issue queue
+						<span class="particle-cube"
+							  style="left: 800px; top: 250px;"></span>
+						<span class="particle-triangle"
+							  style="left: 775px; top: 275px;"></span>
+						<span class="particle-rectangle"
+							  style="left: -25px; top: 0px;"></span>
+					</h1>
+				</section>
+				<section>
+					<table class="table--layout" style="margin: 0 auto;">
+						<tr style=" border: 0;">
+							<td><img
+								src="https://www.gravatar.com/avatar/a0a54df98debfee4b36538826b363c7b?s=200"
+								class="plain" width="100" style="margin: 0"/></td>
+							<td style="vertical-align: middle"><h1>Eelke Blok</h1></td>
+						</tr>
+						<tr style=" border: 0;">
+							<td style="text-align: right"><i
+								class="fas fa-building"></i></td>
+							<td>Sr. Drupal developer @ One Shoe</td>
+						</tr>
+						<tr>
+							<td style="text-align: right"><i class="fas fa-link"></i>
+							</td>
+							<td><a href="https://oneshoe.com">https://oneshoe.com</a>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right"><i class="fab fa-twitter"></i>
+							</td>
+							<td><a href="https://twitter.com/eelkeblok">@eelkeblok</a>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: right"><i class="fab fa-drupal"></i>
+							</td>
+							<td><a href="https://drupal.org/u/eelkeblok">https://drupal.org/u/eelkeblok</a>
+							</td>
+						</tr>
+					</table>
+					<aside class="notes" data-markdown>
+						Sr. Drupal developer at One Shoe. One Shoe is a full service
+						digital agency from the Netherlands.
+
+						* Twitter: @eelkeblok
+						* eelkeblok on Drupal.org.
+					</aside>
+				</section>
+				<section data-markdown>
+					## Agenda
+
+					* What are issues and what is the issue queue?
+					* Issue statuses and priorities
+					* Issue template
+					* Patches, patches, patches
+					* Pull requests (the future)
+				</section>
+				<section data-markdown>
+					## What 's an issue?
+
+					* Any change to Drupal or a contributed project is described in an
+					issue
+					* Bugs, features, tasks, plans, support requests
+					* "Ticket"
+					Note:
+					Bugs, tasks, features, plans and support requests is the category of
+					the issue.
+				</section>
+				<section data-markdown>
+					## What's the issue queue?
+
+					* Drupal core has one
+					* Each contributed project has one
+					* Special issue queues
+					- Ideas
+					- Drupal.org
+					* https://drupal.org/project/issues
+					- https://drupal.org/project/issues/{the-project}
+				</section>
+				<section>
+					<img data-src="images/issues-sidebar.png"/>
+				</section>
+				<section>
+					<img data-src="images/issue-queue.png"/>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## Make sure you selected your company in your d.o profile
+						  </textarea>
+				</section>
+				<section>
+					<img data-src="images/edit-profile.png"/>
+				</section>
+				<section>
+					<img data-src="images/add-company.png"/>
+				</section>
+				<section data-markdown>
+					## Support requests
+
+					* When you're having trouble using Drupal or a module
+					* When somebody more knowledgeable thinks your bug/task/feature
+					request is actually supported, you're just "doing it wrong".
+					* Consider using other means of getting support:
+					- DuckDuckGo: https://duck.com
+					- Stack Exchange: https://drupal.stackexchange.com
+					- Slack: https://drupal.org/slack
+					- IRC: https://drupal.org/irc
+
+					Note:
+					These are rough guidelines and individual projects may define them
+					slightly differently.
+				</section>
+				<section data-markdown>
+					## Bugs
+					A bug is a functional error in the system.
+
+					Examples:
+					* A PHP error such as a warning or notice
+					* Data loss
+					* Regressions in functionality from previous major versions or
+					stable releases
+					* Memory leaks
+					* Scalability issues
+					* Incorrect or misleading user interface text
+					* Incorrect or misleading documentation
+
+					Note:
+					This is based on the definitions for core.
+
+					The definition of 'bug' is commonly understood.
+				</section>
+				<section data-markdown>
+					## Tasks
+					Things that 'need to be done'. Not a bug, or a feature.
+
+					Examples:
+					* Refactoring code to make it more readable
+					* Adding automated tests
+					* Refactoring functions for performance (where they are not causing
+					functional errors)
+					* Updating code to new APIs
+					* Improving coding standards
+					* Rewriting user interface strings for brevity and clarity.
+				</section>
+				<section data-markdown>
+					## Feature requests
+
+					Any completely new functionality.
+
+					Examples:
+					* New modules (e.g. Media Browser)
+					* New subsystems (e.g. JSON:API)
+					* Adding (or removing!) an option from a particular admin form
+				</section>
+				<section data-markdown>
+					## Plans
+
+					> [Plans are] used for meta issues that capture process and
+					> give an overview to problems that cannot be solved with one issue.
+					> Plan issues will often have multiple sub-steps in related "child"
+					> issues (issues that have the plan issue in their "Parent" issue
+					> relationship field).
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+						  ## Issue priorities
+
+						  https://www.drupal.org/core/issue-priority
+
+						  * Critical
+							<small>
+							  Major versions of Drupal core (like 8.0.0 or 9.0.0) won't be
+							  released until all critical issues are fixed.
+							</small>
+						  * Major
+							<small>
+							  Used for issues that are not critical, but that do have
+							  significant impact or are important by community consensus.
+							</small>
+						  * Normal
+						  * Minor
+
+						  Note:
+						  Guidelines for when a priority can be applied are based on the
+						  categories. Guidelines get less strict with lower priorities.
+
+						  Critical: Minor and patch versions (like 8.1.0, 8.0.1, and 7.1) are
+							not blocked by critical issues.
+
+						  Major: Prioritized in the current development release and backported
+							to stable releases where applicable.
+
+						  These are in terms of the Drupal project, not in terms of your site.
+						  </textarea>
+				</section>
+				<section>
+					<h2>When is an issue critical?</h2>
+
+					<ul>
+						<li>
+							Bugs<br/>
+							<small>
+								<ul>
+									<li>Sites can be rendered unusable, without a
+										workaround
+									</li>
+									<li>Data loss</li>
+									<li>Security vulnerabilities*</li>
+								</ul>
+							</small>
+						</li>
+						<li>
+							Tasks<br/>
+							<small>
+								<ul>
+									<li>Severe performance issues</li>
+									<li><em>Significant</em> regressions</li>
+									<li>
+										Maintainer can decide an issue should not block
+										a release
+										and downgrade
+									</li>
+								</ul>
+							</small>
+						</li>
+						<li>Features<br/>
+							<small>
+								<ul>
+									<li>Rarely, at maintainer's discretion</li>
+								</ul>
+							</small>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>When is an issue major?</h2>
+
+					<ul>
+						<li>
+							Bugs<br/>
+							<small>
+								Bugs that have significant repercussions but do not
+								render the
+								whole system unusable (or have a known workaround).
+								<ul>
+									<li>Interfere with normal site visitors' use of the
+										site
+									</li>
+									<li>Render one feature unusable with no workaround
+									</li>
+									<li>Block contributed projects with no workaround
+									</li>
+									<li>Cause user input to be lost, but do not delete
+										or corrupt
+										existing data
+									</li>
+								</ul>
+							</small>
+						</li>
+						<li>
+							Tasks<br/>
+							<small>
+								Important API additions, refactors, and other
+								significant
+								changes that are not bugs.
+								<ul>
+									<li>Code refactoring like removing Taxonomy term
+										reference
+										field in favor of Entity reference
+									</li>
+									<li>Adding a Drupal Yaml wrapper</li>
+									<li>Decoupling Drupal core from a dependency that is
+										no longer
+										supported
+									</li>
+								</ul>
+							</small>
+						</li>
+						<li>Features<br/>
+							<small>Based on their value to the project overall and/or
+								the
+								scope of work to complete them.
+								<ul>
+									<li>Providing a better UX for creating, editing &
+										managing draft
+										revisions
+									</li>
+								</ul>
+							</small>
+						</li>
+					</ul>
+					<aside class="notes" data-markdown>
+						Tasks and features: often identified by core framework or
+						release
+						managers, initiative coordinators, or subsystem or topic
+						maintainers.
+
+						We haven't discussed normal and minor.
+						Normal: everything else.
+						Minor: mostly cosmetic issues that do influence the
+						functionality
+						or main purpose.
+					</aside>
+				</section>
+				<section>
+					<h2>Issue statuses</h2>
+
+					<a href="https://www.drupal.org/issue-queue/status">https://www.drupal.org/issue-queue/status</a><br/>
+					<img data-src="images/drupal-issue-statuses.png" class="plain"/>
+					<aside class="notes" data-markdown>
+						Active:
+						* default, no patch
+						* sometimes used to reset an issue, even when it has patches
+						attached.
+
+						Needs review:
+						* patch created, needs review and testing.
+						* trigger for test bot
+						* might be an idea that needs review
+						* used to find patches that need to be reviews
+
+						Needs work:
+						* has a patch, but needs additional work
+						* by reviewer
+						* by testbot
+						* by author
+
+						Reviewed & Tested by the Community
+						* RTBC
+						* received sufficient reviewing, deemed ready to be committed
+						* usually not set by patch author
+						* judgment call
+						* does not mean it will be committed; up to the maintainer,
+						might
+						get reset if somebody feels it needs to
+						* if on this status for a long time, needs to be re-valuated
+
+						Patch (to be ported)
+						* Patch has been committed to one version, but needs to be
+						commited
+						to another and needs to be modified to do so
+
+						Fixed
+						* Issue has been fixed (by committing patch).
+						* Will get set to Closed (fixed) automatically
+
+						Postponed. Either:
+						* the issue is valid and should be fixed, but there are
+						blockers; mark issue as blocked, state which issues in a
+						comment,
+						attach related issues
+						* the issue is not being worked on actively, but intention is to
+						return to it
+
+						Postponed (maintainer needs more info)
+						* insufficient information in the issue to proceed
+						* could be set to Closed (cannot reproduce) or Closed (won't
+						fix)
+
+						Closed
+						* Yowza.
+					</aside>
+				</section>
+				<section>
+					<h2>Closed</h2>
+					<p>A status with multiple personality disorder</p>
+
+					<table class="layout">
+						<tr>
+							<td>
+								<ul>
+									<li>Closed (duplicate)</li>
+									<li>Closed (won't fix)</li>
+									<li>Closed (works as designed)</li>
+								</ul>
+							</td>
+							<td>
+								<ul>
+									<li>Closed (cannot reproduce)</li>
+									<li>Closed (outdated)</li>
+									<li>Closed (fixed)</li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+					<aside class="notes" data-markdown>
+						* Closed (duplicate)
+						An identical, or strikingly similar issue has already been
+						created. The issue being marked as a duplicate issue should
+						provide a link back to the earlier version of the issue.
+						* Closed (won't fix) (#)
+						It has been decided that this issue will not be fixed. This
+						includes feature requests that are deemed to be outside the
+						scope
+						of the project, issues from unsupported releases, bug reports
+						that
+						are too far-reaching to fix, support requests from belligerent
+						users, etc.
+						* Closed (works as designed)
+						The reported issue has been deemed not to be an issue. The
+						reported behavior is either an intentional part of the project,
+						or
+						the issue is caused by customizations manually applied by the
+						user
+						(wrong configuration, code alterations, theme override
+						functions).
+						* Closed (cannot reproduce)
+						If no-one is able to reproduce the problem being reported, an
+						issue can be closed with this status. It's possible that the
+						original reporter is confused and "works as designed" might be
+						more accurate, but there's not enough evidence to be sure. If
+						someone else can come along and reproduce the problem, they can
+						provide the information and move it back to "active". However,
+						if
+						the maintainer says the issue is "Closed (works as designed)",
+						there's no point trying to provide further information or to
+						reopen the issue.
+						* Closed (outdated)
+						This status is used for outstanding issues filed against
+						unsupported versions of a project. For example, when a major
+						version of Drupal core reaches its end-of-life (EOL), this
+						status
+						will be automatically set on all remaining open issues for that
+						branch.
+						* Closed (fixed)
+						This status is used exclusively by the Project issue tracking
+						system to close "fixed" issues automatically after two weeks of
+						inactivity. You should not need to set this status yourself. The
+						issue is no longer current. Issues that have reached this status
+						should typically not be reopened, but instead, a new issue
+						should
+						be opened, providing a link to the closed issue. Closed issues
+						do
+						not appear in the default view of the issue queue. This provides
+						a
+						cleaner queue, while still maintaining the issues for historical
+						reasons.
+					</aside>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## Creating a new issue
+							When not to create a new issue
+
+							https://www.lullabot.com/articles/how-to-solve-all-your-problems
+
+						  </textarea>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## Creating a new issue
+							When not to create a new issue
+
+							* Try the latest code (development version)
+							* Check the issue queue for existing issues (but don't switch
+							  versions)
+							* Make sure to always run updates
+
+							Note:
+							Check the issue queue:
+							* try search terms you would use to describe your issue as well as
+							  terms someone else might use.
+							* don't switch versions
+							* don't reopen closed issues, unless if is very recent and you find
+							  it's not actually fixed. Explain!
+						  </textarea>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## When all else fails...
+						  </textarea>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## ...create an issue
+
+							* One issue per issue
+							* Make the title descriptive
+							* Give enough information (but not too much)
+							* Steps to reproduce
+							* Use the issue template
+						  </textarea>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## Use the issue summary template
+
+							https://www.drupal.org/issue-summaries
+
+							Note:
+							Copy-paste it directly in the issue, or use textexpander or a similar
+							tool to create it with a few keystrokes.
+						  </textarea>
+				</section>
+				<section>
+					<h2>Use the issue summary template</h2>
+
+					<pre><code class="html"><h3 id="summary-problem-motivation">Problem/Motivation</h3>
+				(Why the issue was filed, steps to reproduce the problem, etc.)
+
+				<h3 id="summary-proposed-resolution">Proposed resolution</h3>
+				(Description of the proposed solution, the rationale behind it,
+				and workarounds for people who cannot use the patch.)
+
+				<h3 id="summary-remaining-tasks">Remaining tasks</h3>
+				(reviews needed, tests to be written or run, documentation to
+				be written, etc.)
+
+				<h3 id="summary-ui-changes">User interface changes</h3>
+				(New or changed features/functionality in the user interface,
+				modules added or removed, changes to URL paths, changes to user
+				interface text.)
+
+				<h3 id="summary-api-changes">API changes</h3>
+				(API changes/additions that would affect module,
+				install profile, and theme developers, including
+				examples of before/after code if appropriate.)
+
+				<h3 id="summary-data-model-changes">Data model changes</h3>
+				(Database or configuration data changes that would make stored
+				data on an existing site incompatible with the site's updated
+				codebase, including changes to hook_schema(), configuration
+				schema or keys, or the expected format of stored data, etc.)
+
+				<h3 id="summary-release-notes">Release notes snippet</h3>
+				(Major and critical issues should have a snippet that can be
+				pulled into the release notes when a release is created that
+				includes the fix)
+
+				<h3 id="summary-original-report">Original report by [username]</h3>
+				(Text of the original report, for legacy issues whose initial
+				post was not the issue summary. Use rarely.)
+						  </code></pre>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## What is a patch?
+
+							A file describing the changes to be made to a set of other files.
+
+							Note:
+							... such as Drupal itself, or a contrib module.
+						  </textarea>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## Patch naming convention
+							One for every taste.
+
+							https://www.drupal.org/patch/submit#patch_naming
+						  </textarea>
+				</section>
+				<section>
+					<code>[issue-number]-[comment-number].patch</code>
+				</section>
+				<section>
+					<code>[description]-[issue-number]-[comment-number].patch</code>
+				</section>
+				<section>
+					<code>[project]-[description]-[issue-number]-[comment-number].patch</code>
+				</section>
+				<section>
+					<code>[patch-name]--do-not-test.patch</code>
+					<br/>
+					<code>[patch-name]--FAIL.patch</code>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## Working with patches
+
+							Git is your friend!
+							Before you start, get a clone of the project's Git repo.
+						  </textarea>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							<h2>Applying patch</h2>
+
+							<ol>
+							  <li>Find the commit where the patch was created from (!)</li>
+							  <li>Create a branch, e.g. [issue-number]/[attempt-number]</li>
+							  <li><code>$ git apply -v path/file.patch</code> (or similar)
+							  </li>
+							  <li>Commit (e.g. <code>-m "Apply patch my_project-fix_nasty_bug_12345-2.patch")</code></li>
+							</ol>
+						  </textarea>
+				</section>
+				<section data-state="gitgraph-10">
+					<h2>Creating a patch</h2>
+
+					<div id="gitgraph-10"></div>
+					<script>
+						Reveal.addEventListener('gitgraph-10', function () {
+							// Get the graph container HTML element.
+							const graphContainer = document.getElementById("gitgraph-10");
+
+							if (graphContainer.classList.contains('graphed')) {
+								return;
+							}
+
+							// Instantiate the graph.
+							const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+							// Simulate git commands with Gitgraph API.
+							const master = gitgraph.branch("8.x-1.x");
+							master.commit("Initial commit");
+							master.commit("Another commit");
+							master.tag("8.x-1.0");
+
+							const patch = gitgraph.branch("123456/1");
+							patch.commit("Solve the issue");
+
+							graphContainer.classList.add('graphed');
+						}, false);
+					</script>
+					<small><code>$ git diff 8.x-1.0 123456/1 >
+						my-patch.patch</code></small>
+				</section>
+				<section data-state="gitgraph-20">
+					<h2>Or...</h2>
+
+					<div id="gitgraph-20"></div>
+					<script>
+						Reveal.addEventListener('gitgraph-20', function () {
+							// Get the graph container HTML element.
+							const graphContainer = document.getElementById("gitgraph-20");
+
+							if (graphContainer.classList.contains('graphed')) {
+								return;
+							}
+							// Instantiate the graph.
+							const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+							// Simulate git commands with Gitgraph API.
+							const master = gitgraph.branch("8.x-1.x");
+							master.commit("Initial commit");
+							master.commit("Another commit");
+							master.tag("8.x-1.0");
+
+							const patch = gitgraph.branch("123456/1");
+							patch.commit("Solve the issue");
+							patch.commit("Fix a typo");
+							patch.commit("Yet another tweak");
+
+							graphContainer.classList.add('graphed');
+						}, false);
+					</script>
+					<small><code>$ git diff 8.x-1.0 123456/1 >
+						my-patch.patch</code></small>
+				</section>
+				<section>
+					<h2>Interdiff</h2>
+					<p>A way for reviewers to quickly understand the changes you made
+						from one patch to the next.</p>
+				</section>
+				<section>
+					<h2>Rerolling patches</h2>
+
+					<ul>
+						<li>The base project changed in such a way that the patch no
+							longer
+							applies.
+						</li>
+						<li class="fragment">Otherwise known as a merge conflict.</li>
+						<li class="fragment">Git is excellent at resolving conflicts
+							(really!)
+						</li>
+					</ul>
+					</textarea>
+				</section>
+				<section data-state="gitgraph-30">
+					<h2>Rerolling patches (2)</h2>
+					<div id="gitgraph-30"></div>
+					<script>
+						Reveal.addEventListener('gitgraph-30', function () {
+							// Get the graph container HTML element.
+							const graphContainer = document.getElementById("gitgraph-30");
+
+							if (graphContainer.classList.contains('graphed')) {
+								return;
+							}
+
+							// Instantiate the graph.
+							const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+							// Simulate git commands with Gitgraph API.
+							const master = gitgraph.branch("8.x-1.x");
+							master.commit("Initial commit");
+							master.commit("Another commit");
+							master.tag("8.x-1.0");
+
+							const patch = gitgraph.branch("123456/1");
+							patch.commit("Solve the issue");
+
+							master.commit("Some commit that breaks the patch");
+							graphContainer.classList.add('graphed');
+						}, false);
+					</script>
+				</section>
+				<section data-state="gitgraph-40">
+					<h2>Rerolling patches (3)</h2>
+					<div id="gitgraph-40"></div>
+					<script>
+						Reveal.addEventListener('gitgraph-40', function () {
+							// Get the graph container HTML element.
+							const graphContainer = document.getElementById("gitgraph-40");
+
+							if (graphContainer.classList.contains('graphed')) {
+								return;
+							}
+
+							// Instantiate the graph.
+							const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+							// Simulate git commands with Gitgraph API.
+							const master = gitgraph.branch("8.x-1.x");
+							master.commit("Initial commit");
+							master.commit("Another commit");
+							master.tag("8.x-1.0");
+
+							const patch = gitgraph.branch("123456/1");
+							patch.commit("Solve the issue");
+
+							master.commit("Some commit that breaks the patch");
+							patch.merge(master);
+							graphContainer.classList.add('graphed');
+						}, false);
+					</script>
+
+					<small class="fragment"><code>$ git diff 8.x-1.x 123456/1 >
+						my-patch.patch</code></small>
+					<aside class="notes">
+						Note that we now need to create the patch against the dev
+						branch,
+						not the version tag; we are looking for the different between
+						our
+						patch branch and the unpatched branch.
+
+						You might get some merge conflicts, but much of the time this is
+						all.
+					</aside>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## Test-only patches
+
+							* Many projects require tests
+							* How do you demonstrate your tests actually test the changes you
+							  made?
+
+							Note:
+							You could have a separate branch where you only build the tests,
+							that you merge into your full patch branch.
+						  </textarea>
+				</section>
+				<section class="has-dark-background"
+						 data-background-image="images/DSCN2161a.jpg"
+						 data-background-color="#000" data-background-opacity="0.6">
+					<h2 style="text-transform: uppercase">Who thinks this is a modern
+						workflow
+						fit for 2020?
+						<span class="particle-cube"
+							  style="left: 800px; top: 250px;"></span>
+						<span class="particle-triangle"
+							  style="left: 775px; top: 275px;"></span>
+						<span class="particle-rectangle"
+							  style="left: -25px; top: 0px;"></span>
+					</h2>
+				</section>
+				<section data-markdown>
+						  <textarea data-template>
+							## The future: Gitlab
+
+							* https://git.drupalcode.org
+							* Already in use for browsing repositories
+							* Work is being done on per-issue repositories
+							* Edits in the online browser
+							* https://www.drupal.org/drupalorg/roadmap
+						  </textarea>
+				</section>
+				<section>
+					<img
+						data-src="https://www.drupal.org/files/issues/workflow-example.png"/>
+				</section>
+				<section>
+					<h1 style="text-transform: uppercase">
+						Questions?
+						<span class="particle-cube"
+							  style="left: 800px; top: 150px;"></span>
+						<span class="particle-triangle"
+							  style="left: 775px; top: 175px;"></span>
+						<span class="particle-rectangle"
+							  style="left: 100px; top: 0px;"></span>
+					</h1>
+				</section>
 			</div>
 		</div>
 
