@@ -611,30 +611,6 @@ post was not the issue summary. Use rarely.)
 					<h2>Creating a patch</h2>
 
 					<div id="gitgraph-10"></div>
-					<script>
-						Reveal.addEventListener('gitgraph-10', function () {
-							// Get the graph container HTML element.
-							const graphContainer = document.getElementById("gitgraph-10");
-
-							if (graphContainer.classList.contains('graphed')) {
-								return;
-							}
-
-							// Instantiate the graph.
-							const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
-
-							// Simulate git commands with Gitgraph API.
-							const master = gitgraph.branch("8.x-1.x");
-							master.commit("Initial commit");
-							master.commit("Another commit");
-							master.tag("8.x-1.0");
-
-							const patch = gitgraph.branch("123456/1");
-							patch.commit("Solve the issue");
-
-							graphContainer.classList.add('graphed');
-						}, false);
-					</script>
 					<small><code>$ git diff 8.x-1.0 123456/1 >
 						my-patch.patch</code></small>
 				</section>
@@ -642,31 +618,6 @@ post was not the issue summary. Use rarely.)
 					<h2>Or...</h2>
 
 					<div id="gitgraph-20"></div>
-					<script>
-						Reveal.addEventListener('gitgraph-20', function () {
-							// Get the graph container HTML element.
-							const graphContainer = document.getElementById("gitgraph-20");
-
-							if (graphContainer.classList.contains('graphed')) {
-								return;
-							}
-							// Instantiate the graph.
-							const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
-
-							// Simulate git commands with Gitgraph API.
-							const master = gitgraph.branch("8.x-1.x");
-							master.commit("Initial commit");
-							master.commit("Another commit");
-							master.tag("8.x-1.0");
-
-							const patch = gitgraph.branch("123456/1");
-							patch.commit("Solve the issue");
-							patch.commit("Fix a typo");
-							patch.commit("Yet another tweak");
-
-							graphContainer.classList.add('graphed');
-						}, false);
-					</script>
 					<small><code>$ git diff 8.x-1.0 123456/1 >
 						my-patch.patch</code></small>
 				</section>
@@ -693,61 +644,10 @@ post was not the issue summary. Use rarely.)
 				<section data-state="gitgraph-30">
 					<h2>Rerolling patches (2)</h2>
 					<div id="gitgraph-30"></div>
-					<script>
-						Reveal.addEventListener('gitgraph-30', function () {
-							// Get the graph container HTML element.
-							const graphContainer = document.getElementById("gitgraph-30");
-
-							if (graphContainer.classList.contains('graphed')) {
-								return;
-							}
-
-							// Instantiate the graph.
-							const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
-
-							// Simulate git commands with Gitgraph API.
-							const master = gitgraph.branch("8.x-1.x");
-							master.commit("Initial commit");
-							master.commit("Another commit");
-							master.tag("8.x-1.0");
-
-							const patch = gitgraph.branch("123456/1");
-							patch.commit("Solve the issue");
-
-							master.commit("Some commit that breaks the patch");
-							graphContainer.classList.add('graphed');
-						}, false);
-					</script>
 				</section>
 				<section data-state="gitgraph-40">
 					<h2>Rerolling patches (3)</h2>
 					<div id="gitgraph-40"></div>
-					<script>
-						Reveal.addEventListener('gitgraph-40', function () {
-							// Get the graph container HTML element.
-							const graphContainer = document.getElementById("gitgraph-40");
-
-							if (graphContainer.classList.contains('graphed')) {
-								return;
-							}
-
-							// Instantiate the graph.
-							const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
-
-							// Simulate git commands with Gitgraph API.
-							const master = gitgraph.branch("8.x-1.x");
-							master.commit("Initial commit");
-							master.commit("Another commit");
-							master.tag("8.x-1.0");
-
-							const patch = gitgraph.branch("123456/1");
-							patch.commit("Solve the issue");
-
-							master.commit("Some commit that breaks the patch");
-							patch.merge(master);
-							graphContainer.classList.add('graphed');
-						}, false);
-					</script>
 
 					<small class="fragment"><code>$ git diff 8.x-1.x 123456/1 >
 						my-patch.patch</code></small>
@@ -833,5 +733,118 @@ post was not the issue summary. Use rarely.)
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>
+		<script src="https://cdn.jsdelivr.net/npm/@gitgraph/js"></script>
+		<script>
+			const withoutAuthor = GitgraphJS.templateExtend(GitgraphJS.TemplateName.Metro, {
+				commit: {
+					message: {
+						displayAuthor: false,
+					},
+				},
+			});
+			const gitgraphOptions = {
+				// mode: 'compact'
+				template: withoutAuthor
+			};
+		</script>
+		<script>
+			Reveal.addEventListener('gitgraph-10', function () {
+				// Patch from a single commit.
+				// Get the graph container HTML element.
+				const graphContainer = document.getElementById("gitgraph-10");
+
+				if (graphContainer.classList.contains('graphed')) {
+					return;
+				}
+
+				// Instantiate the graph.
+				const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+				// Simulate git commands with Gitgraph API.
+				const master = gitgraph.branch("8.x-1.x");
+				master.commit("Initial commit");
+				master.commit("Another commit");
+				master.tag("8.x-1.0");
+
+				const patch = gitgraph.branch("123456/1");
+				patch.commit("Solve the issue");
+
+				graphContainer.classList.add('graphed');
+			}, false);
+			Reveal.addEventListener('gitgraph-20', function () {
+				// Patch from several commits.
+				// Get the graph container HTML element.
+				const graphContainer = document.getElementById("gitgraph-20");
+
+				if (graphContainer.classList.contains('graphed')) {
+					return;
+				}
+				// Instantiate the graph.
+				const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+				// Simulate git commands with Gitgraph API.
+				const master = gitgraph.branch("8.x-1.x");
+				master.commit("Initial commit");
+				master.commit("Another commit");
+				master.tag("8.x-1.0");
+
+				const patch = gitgraph.branch("123456/1");
+				patch.commit("Solve the issue");
+				patch.commit("Fix a typo");
+				patch.commit("Yet another tweak");
+
+				graphContainer.classList.add('graphed');
+			}, false);
+			Reveal.addEventListener('gitgraph-30', function () {
+				// Rerolling patches (2).
+				// Get the graph container HTML element.
+				const graphContainer = document.getElementById("gitgraph-30");
+
+				if (graphContainer.classList.contains('graphed')) {
+					return;
+				}
+
+				// Instantiate the graph.
+				const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+				// Simulate git commands with Gitgraph API.
+				const master = gitgraph.branch("8.x-1.x");
+				master.commit("Initial commit");
+				master.commit("Another commit");
+				master.tag("8.x-1.0");
+
+				const patch = gitgraph.branch("123456/1");
+				patch.commit("Solve the issue");
+
+				master.commit("Some commit that breaks the patch");
+				graphContainer.classList.add('graphed');
+			}, false);
+			Reveal.addEventListener('gitgraph-40', function () {
+				// Rerolling patches (3).
+				// Get the graph container HTML element.
+				const graphContainer = document.getElementById("gitgraph-40");
+
+				if (graphContainer.classList.contains('graphed')) {
+					return;
+				}
+
+				// Instantiate the graph.
+				const gitgraph = GitgraphJS.createGitgraph(graphContainer, gitgraphOptions);
+
+				// Simulate git commands with Gitgraph API.
+				const master = gitgraph.branch("8.x-1.x");
+				master.commit("Initial commit");
+				master.commit("Another commit");
+				master.tag("8.x-1.0");
+
+				const patch = gitgraph.branch("123456/1");
+				patch.commit("Solve the issue");
+
+				master.commit("Some commit that breaks the patch");
+				patch.merge(master);
+				graphContainer.classList.add('graphed');
+			}, false);
+		</script>
+
 	</body>
 </html>
