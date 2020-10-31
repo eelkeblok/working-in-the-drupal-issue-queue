@@ -183,7 +183,8 @@
 					> issues (issues that have the plan issue in their "Parent" issue
 					> relationship field).
 				</section>
-				<section data-markdown>
+				<section>
+					<section data-markdown>
 						  <textarea data-template>
 						  ## Issue priorities
 
@@ -214,115 +215,133 @@
 
 						  These are in terms of the Drupal project, not in terms of your site.
 						  </textarea>
-				</section>
-				<section>
-					<h2>When is an issue critical?</h2>
+					</section>
+					<section>
+						<h2>When is an issue critical?</h2>
 
-					<ul>
-						<li>
-							Bugs<br/>
-							<small>
-								<ul>
-									<li>Sites can be rendered unusable, without a
-										workaround
-									</li>
-									<li>Data loss</li>
-									<li>Security vulnerabilities*</li>
-								</ul>
-							</small>
-						</li>
-						<li>
-							Tasks<br/>
-							<small>
-								<ul>
-									<li>Severe performance issues</li>
-									<li><em>Significant</em> regressions</li>
-									<li>
-										Maintainer can decide an issue should not block
-										a release
-										and downgrade
-									</li>
-								</ul>
-							</small>
-						</li>
-						<li>Features<br/>
-							<small>
-								<ul>
-									<li>Rarely, at maintainer's discretion</li>
-								</ul>
-							</small>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h2>When is an issue major?</h2>
+						<ul>
+							<li>
+								Bugs<br/>
+								<small>
+									<ul>
+										<li>Sites can be rendered unusable,
+											without a
+											workaround
+										</li>
+										<li>Data loss</li>
+										<li>Security vulnerabilities*</li>
+									</ul>
+								</small>
+							</li>
+							<li>
+								Tasks<br/>
+								<small>
+									<ul>
+										<li>Severe performance issues</li>
+										<li><em>Significant</em> regressions
+										</li>
+										<li>
+											Maintainer can decide an issue
+											should not block
+											a release
+											and downgrade
+										</li>
+									</ul>
+								</small>
+							</li>
+							<li>Features<br/>
+								<small>
+									<ul>
+										<li>Rarely, at maintainer's discretion
+										</li>
+									</ul>
+								</small>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>When is an issue major?</h2>
 
-					<ul>
-						<li>
-							Bugs<br/>
-							<small>
-								Bugs that have significant repercussions but do not
-								render the
-								whole system unusable (or have a known workaround).
-								<ul>
-									<li>Interfere with normal site visitors' use of the
-										site
-									</li>
-									<li>Render one feature unusable with no workaround
-									</li>
-									<li>Block contributed projects with no workaround
-									</li>
-									<li>Cause user input to be lost, but do not delete
-										or corrupt
-										existing data
-									</li>
-								</ul>
-							</small>
-						</li>
-						<li>
-							Tasks<br/>
-							<small>
-								Important API additions, refactors, and other
-								significant
-								changes that are not bugs.
-								<ul>
-									<li>Code refactoring like removing Taxonomy term
-										reference
-										field in favor of Entity reference
-									</li>
-									<li>Adding a Drupal Yaml wrapper</li>
-									<li>Decoupling Drupal core from a dependency that is
-										no longer
-										supported
-									</li>
-								</ul>
-							</small>
-						</li>
-						<li>Features<br/>
-							<small>Based on their value to the project overall and/or
-								the
-								scope of work to complete them.
-								<ul>
-									<li>Providing a better UX for creating, editing &
-										managing draft
-										revisions
-									</li>
-								</ul>
-							</small>
-						</li>
-					</ul>
-					<aside class="notes" data-markdown>
-						Tasks and features: often identified by core framework or
-						release
-						managers, initiative coordinators, or subsystem or topic
-						maintainers.
+						<ul>
+							<li>
+								Bugs<br/>
+								<small>
+									Bugs that have significant repercussions but
+									do not
+									render the
+									whole system unusable (or have a known
+									workaround).
+									<ul>
+										<li>Interfere with normal site visitors'
+											use of the
+											site
+										</li>
+										<li>Render one feature unusable with no
+											workaround
+										</li>
+										<li>Block contributed projects with no
+											workaround
+										</li>
+										<li>Cause user input to be lost, but do
+											not delete
+											or corrupt
+											existing data
+										</li>
+									</ul>
+								</small>
+							</li>
+							<li>
+								Tasks<br/>
+								<small>
+									Important API additions, refactors, and
+									other
+									significant
+									changes that are not bugs.
+									<ul>
+										<li>Code refactoring like removing
+											Taxonomy term
+											reference
+											field in favor of Entity reference
+										</li>
+										<li>Adding a Drupal Yaml wrapper</li>
+										<li>Decoupling Drupal core from a
+											dependency that is
+											no longer
+											supported
+										</li>
+									</ul>
+								</small>
+							</li>
+							<li>Features<br/>
+								<small>Based on their value to the project
+									overall and/or
+									the
+									scope of work to complete them.
+									<ul>
+										<li>Providing a better UX for creating,
+											editing &
+											managing draft
+											revisions
+										</li>
+									</ul>
+								</small>
+							</li>
+						</ul>
+						<aside class="notes" data-markdown>
+							Tasks and features: often identified by core
+							framework or
+							release
+							managers, initiative coordinators, or subsystem or
+							topic
+							maintainers.
 
-						We haven't discussed normal and minor.
-						Normal: everything else.
-						Minor: mostly cosmetic issues that do influence the
-						functionality
-						or main purpose.
-					</aside>
+							We haven't discussed normal and minor.
+							Normal: everything else.
+							Minor: mostly cosmetic issues that do influence the
+							functionality
+							or main purpose.
+						</aside>
+					</section>
 				</section>
 				<section>
 					<h2>Issue statuses</h2>
