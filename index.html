@@ -621,7 +621,7 @@ post was not the issue summary. Use rarely.)
 
 							<ol>
 							  <li>Find the commit where the patch was created from (!)</li>
-							  <li>Create a branch, e.g. [issue-number]/[attempt-number]</li>
+							  <li>Create a branch, e.g. [issue-number]-[short-description]</li>
 							  <li><code>$ git apply -v path/file.patch</code> (or similar)
 							  </li>
 							  <li>Commit (e.g. <code>-m "Apply patch my_project-fix_nasty_bug_12345-2.patch")</code></li>
@@ -632,14 +632,14 @@ post was not the issue summary. Use rarely.)
 					<h2>Creating a patch</h2>
 
 					<div id="gitgraph-10"></div>
-					<small><code>$ git diff 8.x-1.0 123456/1 >
+					<small><code>$ git diff 8.x-1.0 123456-fix-it >
 						my-patch.patch</code></small>
 				</section>
 				<section data-state="gitgraph-20">
 					<h2>Or...</h2>
 
 					<div id="gitgraph-20"></div>
-					<small><code>$ git diff 8.x-1.0 123456/1 >
+					<small><code>$ git diff 8.x-1.0 123456-fix-it >
 						my-patch.patch</code></small>
 				</section>
 				<section>
@@ -670,7 +670,7 @@ post was not the issue summary. Use rarely.)
 					<h2>Rerolling patches (3)</h2>
 					<div id="gitgraph-40"></div>
 
-					<small class="fragment"><code>$ git diff 8.x-1.x 123456/1 >
+					<small class="fragment"><code>$ git diff 8.x-1.x 123456-fix-it >
 						my-patch.patch</code></small>
 					<aside class="notes">
 						Note that we now need to create the patch against the dev
@@ -840,7 +840,7 @@ post was not the issue summary. Use rarely.)
 				master.commit("Another commit");
 				master.tag("8.x-1.0");
 
-				const patch = gitgraph.branch("123456/1");
+				const patch = gitgraph.branch("123456-fix-it");
 				patch.commit("Solve the issue");
 
 				graphContainer.classList.add('graphed');
@@ -862,7 +862,7 @@ post was not the issue summary. Use rarely.)
 				master.commit("Another commit");
 				master.tag("8.x-1.0");
 
-				const patch = gitgraph.branch("123456/1");
+				const patch = gitgraph.branch("123456-fix-it");
 				patch.commit("Solve the issue");
 				patch.commit("Fix a typo");
 				patch.commit("Yet another tweak");
@@ -887,7 +887,7 @@ post was not the issue summary. Use rarely.)
 				master.commit("Another commit");
 				master.tag("8.x-1.0");
 
-				const patch = gitgraph.branch("123456/1");
+				const patch = gitgraph.branch("123456-fix-it");
 				patch.commit("Solve the issue");
 
 				master.commit("Some commit that breaks the patch");
@@ -911,7 +911,7 @@ post was not the issue summary. Use rarely.)
 				master.commit("Another commit");
 				master.tag("8.x-1.0");
 
-				const patch = gitgraph.branch("123456/1");
+				const patch = gitgraph.branch("123456-fix-it");
 				patch.commit("Solve the issue");
 
 				master.commit("Some commit that breaks the patch");
